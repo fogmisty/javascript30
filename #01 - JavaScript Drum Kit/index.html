@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Drum Kit</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="key" id="a">
+            A
+        </div>
+        <div class="key" id="s">
+            S
+        </div>
+        <div class="key" id="d">
+            D
+        </div>
+        <div class="key" id="f">
+            F
+        </div>
+    </div>
+    <audio id="a" src="sounds/clap.wav"></audio>
+    <audio id="s" src="sounds/hihat.wav"></audio>
+    <audio id="d" src="sounds/kick.wav"></audio>
+    <audio id="f" src="sounds/openhat.wav"></audio>
+</body>
+
+</html>
+
+<script>
+    window.addEventListener('keydown', e => {
+        if (e.key === 'a' || e.key === 's' || e.key === 'd' || e.key === 'f') {
+            document.querySelector(`#${e.key}`).classList.add('playing');
+            document.querySelector(`audio#${e.key}`).play();
+            console.log(document.querySelector(`audio#${e.key}`))
+            // setTimeout(() => {
+            //     document.querySelector(`#${e.key}`).classList.remove('playing');
+            // }, 200);
+        }
+    });
+    document.querySelectorAll('.key').forEach(key =>
+        key.addEventListener(
+            'transitionend',
+            (e) => {
+                if (e.propertyName !== 'transform') return;
+                e.target.classList.remove('playing');
+            }
+        ));
+</script>
