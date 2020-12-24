@@ -6,8 +6,6 @@
 
 ## DAY 1 —— JavaScript Drum Kit
 
-### 知识点
-
 1. 键盘事件
 
 addEventListener 事件监听方法：addEventListener 方法可以将事件处理程序附加到指定元素（DOM 对象，window 对象）；removeEventListener 方法删除事件监听器。
@@ -48,4 +46,22 @@ transitionend 需要和 transition 搭配使用
 ```
 // element的样式必须有transition否则无效
 element.addEventListener('transitionend', function, useCapture);
+```
+
+---
+
+## DAY 2 —— CSS + JS Clock
+
+1. CSS 旋转
+
+transform:rotate(d)：旋转角度
+
+```
+element.style.transform = `rotate(${ number }deg)`; // 其中number为角度
+```
+
+transform-origin：旋转点
+
+```
+transform-origin: x-axis y-axis z-axis;
 ```
